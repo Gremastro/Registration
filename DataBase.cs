@@ -1,29 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 
 namespace Registration
 {
     class DataBase
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=WIN-URDQA9ADV82;Initial Catalog=Пользователи;Integrated Security=True");
+        public SqlConnection sqlConnection = new(@"Data Source=WIN-URDQA9ADV82;Initial Catalog=Users;Integrated Security=True");
 
-        public void openConnection()
+        public void OpenConnection()
         {
-            if (sqlConnection.State == System.Data.ConnectionState.Closed) ;
-            sqlConnection.Open();
+            if (sqlConnection.State == System.Data.ConnectionState.Closed)
+            {
+                sqlConnection.Open();
+            }
         }
 
-        public void closeConnection()
+        public void CloseConnection()
         {
-            if (sqlConnection.State == System.Data.ConnectionState.Open) ;
-            sqlConnection.Close();
+            if (sqlConnection.State == System.Data.ConnectionState.Open)
+            {
+                sqlConnection.Close();
+            }
         }
 
-        public SqlConnection getConnection()
+        public SqlConnection GetConnection()
         {
             return sqlConnection;
         }
